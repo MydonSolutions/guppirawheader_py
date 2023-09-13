@@ -1,0 +1,19 @@
+[build-system]
+requires = ["setuptools", "setuptools-scm"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "guppirawheader"
+version = "0.0.1"
+description = "Python Library of key-value-store implementations for GUPPI RAW Headers."
+readme = "README.md"
+classifiers = [
+    "Programming Language :: Python :: 3",
+    "License :: OSI Approved :: GNU Lesser General Public License v3 (LGPLv3)",
+    "Operating System :: OS Independent",
+]
+requires-python = ">=3.7"
+dependencies = [
+  "keyvaluestore @ git+https://github.com/MydonSolutions/keyvaluestore",
+  "keyvalueproperty_rao_lists @ git+https://github.com/MydonSolutions/keyvalueproperty_rao_lists",
+]
