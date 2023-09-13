@@ -4,7 +4,7 @@ build-backend = "setuptools.build_meta"
 
 [project]
 name = "guppirawheader"
-version = "0.0.1"
+version = "0.0.2"
 description = "Python Library of key-value-store implementations for GUPPI RAW Headers."
 readme = "README.md"
 classifiers = [

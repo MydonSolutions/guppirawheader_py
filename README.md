@@ -6,8 +6,13 @@ Further implementations apply the [property lists](https://github.com/MydonSolut
 ## Exemplary use of the `GuppiRawHeader` class
 
 ```python
+from guppirawheader import GuppiRawHeader
 from guppirawheader.cosmic import GuppiRawHeaderCOSMIC
 
 with open(guppi_raw_filepath, "rb") as f:
-    header = GuppiRawHeaderCOSMIC.file_read_header(f, GuppiRawHeaderCOSMIC)
+    header = GuppiRawHeader.file_read_header(f) # without properties
+    f.seek(0)
+    header = GuppiRawHeader.file_read_header(f, GuppiRawHeaderCOSMIC) # with COSMIC properties
+    f.seek(0)
+    header = GuppiRawHeaderCOSMIC.file_read_header(f) # with COSMIC properties
 ```

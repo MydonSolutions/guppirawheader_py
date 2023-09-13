@@ -1,5 +1,6 @@
 import argparse
 
+from guppirawheader import GuppiRawHeader
 from guppirawheader.cosmic import GuppiRawHeaderCOSMIC
 from guppirawheader.ata import GuppiRawHeaderATA
 
@@ -20,7 +21,7 @@ parser.add_argument(
 )
 
 parser.add_argument(
-    "-c","--class",
+    "-c","--class-name",
     default="COSMIC",
     choices=list(class_name_map.keys()),
     help="Specify the class to instantiate."
@@ -29,7 +30,10 @@ parser.add_argument(
 args = parser.parse_args()
 
 with open(args.guppi_raw_filepath, "rb") as f:
-    header = GuppiRawHeaderCOSMIC.file_read_header(f, GuppiRawHeaderCOSMIC)
+    header = GuppiRawHeader.file_read_header(
+        f,
+        class_name_map[args.class_name]
+    )
 
 print(f"type(header): {type(header)}")
 print(f"Header: {header.get()}")
